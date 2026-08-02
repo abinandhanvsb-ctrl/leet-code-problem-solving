@@ -1,0 +1,25 @@
+class Solution {
+    public boolean canMeasureWater(int x, int y, int target) {
+        // If target is greater than total capacity, it's impossible
+        if (target > x + y) {
+            return false;
+        }
+
+        // If target is exactly 0 or equals total capacity
+        if (target == 0 || target == x + y) {
+            return true;
+        }
+
+        // Use Bézout's theorem
+        return target % gcd(x, y) == 0;
+    }
+
+    private int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+}
