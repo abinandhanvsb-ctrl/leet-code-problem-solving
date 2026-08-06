@@ -1,0 +1,15 @@
+class Solution {
+    public int tribonacci(int n) {
+        int sum=0;
+        if(n==1 || n==2)return 1;
+        int num1=0,num2=0,num3=1;
+        while(n-- > 1)
+            {
+                sum=num1+num2+num3;
+                num1=num2;
+                num2=num3;
+                num3=sum;
+            }
+        return sum;
+    }
+}
